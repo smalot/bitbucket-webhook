@@ -100,7 +100,7 @@ class Webhook
             $eventNames = $this->getDefaultEventNames();
 
             $classNames = array_map(
-                function ($event) use ($namespace) {
+                function($event) use ($namespace) {
                     $className = str_replace(' ', '', ucwords(str_replace(array('_', ':'), ' ', $event)));
 
                     return $namespace . $className . 'Event';
