@@ -161,6 +161,18 @@ class Webhook
     }
 
     /**
+     * @return array
+     */
+    protected function getTrustedIpRanges()
+    {
+        return array(
+            '131.103.20.160/27',
+            '165.254.145.0/26',
+            '104.192.143.0/24',
+        );
+    }
+
+    /**
      * @param Request $request
      * @return bool
      *
@@ -168,11 +180,7 @@ class Webhook
      */
     protected function checkSecurity(Request $request)
     {
-        $trustedIpRanges = array(
-            '131.103.20.160/27',
-            '165.254.145.0/26',
-            '104.192.143.0/24',
-        );
+        $trustedIpRanges = $this->getTrustedIpRanges();
 
         // Reset any previously payload set.
         $this->requestUuid = $this->eventName = $this->payload = $this->attemptCount = null;
