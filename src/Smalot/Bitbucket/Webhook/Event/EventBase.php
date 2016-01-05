@@ -32,16 +32,23 @@ abstract class EventBase extends Event
     protected $attemptCount;
 
     /**
+     * @var string
+     */
+    protected $requestUuid;
+
+    /**
      * EventBase constructor.
      * @param string $eventName
      * @param string $payload
      * @param int $attemptCount
+     * @param string $requestUuid
      */
-    public function __construct($eventName, $payload, $attemptCount)
+    public function __construct($eventName, $payload, $attemptCount, $requestUuid)
     {
         $this->eventName = $eventName;
         $this->payload = $payload;
         $this->attemptCount = $attemptCount;
+        $this->requestUuid = $requestUuid;
 
         $payload = json_decode($this->payload, true);
         $className = $this->getClassModel();
@@ -62,6 +69,22 @@ abstract class EventBase extends Event
     public function getPayload()
     {
         return $this->payload;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAttemptCount()
+    {
+        return $this->attemptCount;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestUuid()
+    {
+        return $this->requestUuid;
     }
 
     /**

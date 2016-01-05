@@ -3,12 +3,12 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class RepoPushModel
+ * Class RepoIssueCreatedModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user pushes 1 or more commits to a repository.
+ * A user created an issue for a repository.
  */
-class RepoPushModel extends ModelBase
+class RepoIssueCreatedModel extends ModelBase
 {
     /**
      * @return array
@@ -21,16 +21,16 @@ class RepoPushModel extends ModelBase
     /**
      * @return array
      */
-    public function getRepository()
+    public function getIssue()
     {
-        return $this->payload['repository'];
+        return $this->payload['issue'];
     }
 
     /**
      * @return array
      */
-    public function getPush()
+    public function getRepository()
     {
-        return $this->payload['push'];
+        return $this->payload['repository'];
     }
 }

@@ -3,12 +3,12 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class RepoPushModel
+ * Class PullrequestApprovalRemovedModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user pushes 1 or more commits to a repository.
+ * A user removes an approval from a pull request for a repository.
  */
-class RepoPushModel extends ModelBase
+class PullrequestApprovalRemovedModel extends ModelBase
 {
     /**
      * @return array
@@ -16,6 +16,14 @@ class RepoPushModel extends ModelBase
     public function getActor()
     {
         return $this->payload['actor'];
+    }
+
+    /**
+     * @return array
+     */
+    public function getPullRequest()
+    {
+        return $this->payload['pullrequest'];
     }
 
     /**
@@ -29,8 +37,8 @@ class RepoPushModel extends ModelBase
     /**
      * @return array
      */
-    public function getPush()
+    public function getApproval()
     {
-        return $this->payload['push'];
+        return $this->payload['approval'];
     }
 }

@@ -3,12 +3,12 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class RepoPushModel
+ * Class RepoForkModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user pushes 1 or more commits to a repository.
+ * A user forks a repository.
  */
-class RepoPushModel extends ModelBase
+class RepoForkModel extends ModelBase
 {
     /**
      * @return array
@@ -29,8 +29,8 @@ class RepoPushModel extends ModelBase
     /**
      * @return array
      */
-    public function getPush()
+    public function getFork()
     {
-        return $this->payload['push'];
+        return $this->payload['fork'];
     }
 }

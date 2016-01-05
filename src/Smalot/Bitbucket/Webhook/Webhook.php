@@ -143,7 +143,12 @@ class Webhook
         }
 
         if ($className = $this->getEventClassName($this->eventName)) {
-            $event = new $className($this->eventName, $this->payload, $this->attemptCount);
+            $event = new $className(
+                $this->eventName,
+                $this->payload,
+                $this->attemptCount,
+                $this->requestUuid
+            );
         } else {
             throw new \InvalidArgumentException('Unknown event type.');
         }

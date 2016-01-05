@@ -3,12 +3,13 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class RepoPushModel
+ * Class RepoCommitStatusUpdatedModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user pushes 1 or more commits to a repository.
+ * A build system, CI tool, or another vendor recognizes that a commit has
+ * a new status and updates the commit with its status.
  */
-class RepoPushModel extends ModelBase
+class RepoCommitStatusUpdatedModel extends ModelBase
 {
     /**
      * @return array
@@ -29,8 +30,8 @@ class RepoPushModel extends ModelBase
     /**
      * @return array
      */
-    public function getPush()
+    public function getCommitStatus()
     {
-        return $this->payload['push'];
+        return $this->payload['commit_status'];
     }
 }
