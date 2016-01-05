@@ -41,7 +41,7 @@ $listener = ...
 
 $dispatcher->addListener(\Smalot\Bitbucket\Webhook\Events::WEBHOOK_REQUEST, $listener);
 $webhook = new \Smalot\Bitbucket\Webhook\Webhook($dispatcher);
-$event = $webhook->parseRequest($request, 'password');
+$event = $webhook->parseRequest($request);
 
 ````
 
@@ -63,7 +63,7 @@ class BitbucketController extends Controller
     {
         $dispatcher = $this->get('event_dispatcher');
         $webhook = new Webhook($dispatcher);
-        $event = $webhook->parseRequest($request, 'password');
+        $event = $webhook->parseRequest($request);
         
         return Response('ok');
     }
@@ -80,9 +80,9 @@ https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html
 
 ## Security
 
-https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html#Managewebhooks-trigger_webhook
+Bitbucket whitelist IP ranges:
 
-If you want your server to check that the payloads it receives are from Bitbucket, whitelist these IP ranges:
+https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html#Managewebhooks-trigger_webhook
 
 `````
 131.103.20.160/27
@@ -94,29 +94,24 @@ If you want your server to check that the payloads it receives are from Bitbucke
 
 https://confluence.atlassian.com/bitbucket/event-payloads-740262817.html
 
-## Samples
+# Samples
 
 ### Push (with tag)
 
 Headers
 
 ````
-Total-Route-Time: null
-Connect-Time: 5000
-X-Request-Id: 2a6660d5-c3f0-4a70-a6dc-ddb546e4e5eb
 Connection: close
 Host: requestb.in
 Accept-Encoding: gzip, deflate
-Content-Type: application/json
-Cache-Control: max-age=259200
-Via: 1.1 util-102.ash1.bb-inf.net (squid/3.3.8), 1.1 vegur
-X-Event-Key: repo:push
-Content-Length: 2830
 Accept: */*
+Content-Type: application/json
+Content-Length: 2830
+User-Agent: Bitbucket-Webhooks/2.0
+X-Event-Key: repo:push
 X-Attempt-Number: 1
 X-Hook-Uuid: 908a6d9e-45fd-46c8-97e6-c4f350f219dd
 X-Request-Uuid: 07606ab4-601c-4ca4-8c93-b979d3c7b3a1
-User-Agent: Bitbucket-Webhooks/2.0
 ````
 
 Payload
