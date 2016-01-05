@@ -3,12 +3,12 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class PullrequestApprovedModel
+ * Class IssueCreatedModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user approves a pull request for a repository.
+ * A user created an issue for a repository.
  */
-class PullrequestApprovedModel extends ModelBase
+class IssueCreatedModel extends ModelBase
 {
     /**
      * @return array
@@ -21,9 +21,9 @@ class PullrequestApprovedModel extends ModelBase
     /**
      * @return array
      */
-    public function getPullRequest()
+    public function getIssue()
     {
-        return $this->payload['pullrequest'];
+        return $this->payload['issue'];
     }
 
     /**
@@ -32,13 +32,5 @@ class PullrequestApprovedModel extends ModelBase
     public function getRepository()
     {
         return $this->payload['repository'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getApproval()
-    {
-        return $this->payload['approval'];
     }
 }

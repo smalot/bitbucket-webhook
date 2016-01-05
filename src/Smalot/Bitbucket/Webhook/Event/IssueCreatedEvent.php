@@ -2,26 +2,26 @@
 
 namespace Smalot\Bitbucket\Webhook\Event;
 
-use Smalot\Bitbucket\Webhook\Model\RepoIssueCreatedModel;
+use Smalot\Bitbucket\Webhook\Model\IssueCreatedModel;
 
 /**
- * Class RepoIssueCreatedEvent
+ * IssueCreatedEvent
  * @package Smalot\Bitbucket\Webhook\Event
  *
  * A user creates an issue for a repository.
  */
-class RepoIssueCreatedEvent extends EventBase
+class IssueCreatedEvent extends EventBase
 {
     /**
      * @return string
      */
     protected function getClassModel()
     {
-        return '\Smalot\Bitbucket\Webhook\Model\RepoIssueCreatedModel';
+        return '\Smalot\Bitbucket\Webhook\Model\IssueCreatedModel';
     }
 
     /**
-     * @return RepoIssueCreatedModel
+     * @return IssueCreatedModel
      */
     public function getData()
     {

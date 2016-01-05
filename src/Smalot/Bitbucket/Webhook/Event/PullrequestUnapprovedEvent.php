@@ -2,26 +2,26 @@
 
 namespace Smalot\Bitbucket\Webhook\Event;
 
-use Smalot\Bitbucket\Webhook\Model\PullrequestApprovalRemovedModel;
+use Smalot\Bitbucket\Webhook\Model\PullrequestUnapprovedModel;
 
 /**
- * Class PullrequestApprovalRemovedEvent
+ * Class PullrequestUnapprovedEvent
  * @package Smalot\Bitbucket\Webhook\Event
  *
  * A user removes an approval from a pull request for a repository.
  */
-class PullrequestApprovalRemovedEvent extends EventBase
+class PullrequestUnapprovedEvent extends EventBase
 {
     /**
      * @return string
      */
     protected function getClassModel()
     {
-        return '\Smalot\Bitbucket\Webhook\Model\PullrequestApprovalRemovedModel';
+        return '\Smalot\Bitbucket\Webhook\Model\PullrequestUnapprovedModel';
     }
 
     /**
-     * @return PullrequestApprovalRemovedModel
+     * @return PullrequestUnapprovedModel
      */
     public function getData()
     {

@@ -2,26 +2,26 @@
 
 namespace Smalot\Bitbucket\Webhook\Event;
 
-use Smalot\Bitbucket\Webhook\Model\RepoFortModel;
+use Smalot\Bitbucket\Webhook\Model\RepoForkModel;
 
 /**
- * Class RepoFortEvent
+ * Class RepoForkEvent
  * @package Smalot\Bitbucket\Webhook\Event
  *
  * A user forks a repository.
  */
-class RepoFortEvent extends EventBase
+class RepoForkEvent extends EventBase
 {
     /**
      * @return string
      */
     protected function getClassModel()
     {
-        return '\Smalot\Bitbucket\Webhook\Model\RepoFortModel';
+        return '\Smalot\Bitbucket\Webhook\Model\RepoForkModel';
     }
 
     /**
-     * @return RepoFortModel
+     * @return RepoForkModel
      */
     public function getData()
     {

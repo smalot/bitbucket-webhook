@@ -3,12 +3,12 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class PullrequestApprovalRemovedModel
+ * Class PullrequestRejectedModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user removes an approval from a pull request for a repository.
+ * A user rejectes a pull request for a repository.
  */
-class PullrequestApprovalRemovedModel extends ModelBase
+class PullrequestRejectedModel extends ModelBase
 {
     /**
      * @return array

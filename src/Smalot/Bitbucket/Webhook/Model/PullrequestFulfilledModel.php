@@ -3,12 +3,12 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class PullrequestDeclinedModel
+ * Class PullrequestFulfilledModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user declines a pull request for a repository.
+ * A user fulfilles a pull request for a repository.
  */
-class PullrequestDeclinedModel extends ModelBase
+class PullrequestFulfilledModel extends ModelBase
 {
     /**
      * @return array
@@ -32,13 +32,5 @@ class PullrequestDeclinedModel extends ModelBase
     public function getRepository()
     {
         return $this->payload['repository'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getApproval()
-    {
-        return $this->payload['approval'];
     }
 }

@@ -3,12 +3,12 @@
 namespace Smalot\Bitbucket\Webhook\Model;
 
 /**
- * Class RepoIssueUpdatedModel
+ * Class IssueCommentCreatedModel
  * @package Smalot\Bitbucket\Webhook\Model
  *
- * A user updated an issue for a repository.
+ * A user created a comment on an issue for a repository.
  */
-class RepoIssueUpdatedModel extends ModelBase
+class IssueCommentCreatedModel extends ModelBase
 {
     /**
      * @return array
@@ -16,14 +16,6 @@ class RepoIssueUpdatedModel extends ModelBase
     public function getActor()
     {
         return $this->payload['actor'];
-    }
-
-    /**
-     * @return array
-     */
-    public function getIssue()
-    {
-        return $this->payload['issue'];
     }
 
     /**
@@ -37,16 +29,16 @@ class RepoIssueUpdatedModel extends ModelBase
     /**
      * @return array
      */
-    public function getComment()
+    public function getIssue()
     {
-        return $this->payload['comment'];
+        return $this->payload['issue'];
     }
 
     /**
      * @return array
      */
-    public function getChanges()
+    public function getComment()
     {
-        return $this->payload['changes'];
+        return $this->payload['comment'];
     }
 }

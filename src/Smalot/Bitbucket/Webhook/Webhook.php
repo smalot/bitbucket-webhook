@@ -150,7 +150,7 @@ class Webhook
                 $this->requestUuid
             );
         } else {
-            throw new \InvalidArgumentException('Unknown event type.');
+            throw new \InvalidArgumentException('Unknown event type: ' . $this->eventName . '.');
         }
 
         if (null !== $this->eventDispatcher && $dispatch) {
